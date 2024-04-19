@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { addBook } from '../../redux/books/actioCreators'
 import Styles from './BookForm.module.css'
 
 import { useState } from 'react'
@@ -5,19 +7,23 @@ import { useState } from 'react'
 const BookForm = () => {
 	const [title, setTitle] = useState('')
 	const [author, setAuthor] = useState('')
+	const dispatch = useDispatch()
 
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
 		e.preventDefault()
 
-		if (title && author){
+		if (title && author) {
 			// dispatch action
-			console.log(title, author);
+
+			const book = { title, author }
+			console.log(addBook(book))
+			dispatch(addBook(book))
+			console.log(title, author)
 			setTitle('')
 			setAuthor('')
 		}
 	}
 
-	
 	return (
 		<div className={`app-block ${Styles['book-form']}`}>
 			<h2>Add a New Book</h2>
