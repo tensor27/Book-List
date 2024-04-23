@@ -13,7 +13,7 @@ function BookList() {
 			) : (
 				<ul>
 					{books.map((book, index) => (
-						<li key={index}>
+						<li key={book.id}>
 							<div className={Styles['book-info']}>
 								{++index}. <strong>{book.title}</strong> by {book.author}
 							</div>

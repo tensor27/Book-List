@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
 import { addBook } from '../../redux/books/actioCreators'
 import Styles from './BookForm.module.css'
-
-import { useState } from 'react'
 
 const BookForm = () => {
 	const [title, setTitle] = useState('')
@@ -13,12 +13,9 @@ const BookForm = () => {
 		e.preventDefault()
 
 		if (title && author) {
-			// dispatch action
-
-			const book = { title, author }
+			const book = { title, author, id: uuidv4() }
 			console.log(addBook(book))
 			dispatch(addBook(book))
-			console.log(title, author)
 			setTitle('')
 			setAuthor('')
 		}
