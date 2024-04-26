@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
+import booksData from '../../data/books.json'
 import { addBook } from '../../redux/books/actioCreators'
 import Styles from './BookForm.module.css'
 
@@ -18,6 +19,13 @@ const BookForm = () => {
 			setTitle('')
 			setAuthor('')
 		}
+	}
+
+	const handleAddRandomBook = () => {
+		const randomIndex = Math.floor(Math.random() * booksData.length)
+		const randomBook = { ...booksData[randomIndex], id: uuidv4() }
+		console.log(randomBook)
+		dispatch(addBook(randomBook))
 	}
 
 	return (
@@ -43,6 +51,9 @@ const BookForm = () => {
 					/>
 				</div>
 				<button type='submit'>Add book</button>
+				<button type='button' onClick={handleAddRandomBook}>
+					Add random book
+				</button>
 			</form>
 		</div>
 	)
