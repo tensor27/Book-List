@@ -14,7 +14,6 @@ const BookForm = () => {
 
 		if (title && author) {
 			const book = { title, author, id: uuidv4() }
-			console.log(addBook(book))
 			dispatch(addBook(book))
 			setTitle('')
 			setAuthor('')

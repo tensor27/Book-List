@@ -30,7 +30,14 @@
 
 .book-list li:hover {
 	background-color: #63708b;
-	color: yellow;
+}
+
+.book-list .delete-ico {
+	transition: 0.2s all ease-in-out;
+}
+
+.book-list .delete-ico:hover {
+	color: rgb(250, 118, 118);
 }
 
 .book-list button {
@@ -70,4 +77,13 @@
 	cursor: pointer;
 	transition: color 0.3s ease;
 	color: #fca510;
+}
+
+.delete-ico {
+	font-size: 24px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding-inline: 5px;
 }

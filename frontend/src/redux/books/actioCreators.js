@@ -7,6 +7,6 @@ export const addBook = newBook => {
 	}
 }
 
-export const deleteBook = () => {
-	return { type: actionTypes.DELETE_BOOK }
+export const deleteBook = bookId => {
+	return { type: actionTypes.DELETE_BOOK, payload: bookId }
 }
