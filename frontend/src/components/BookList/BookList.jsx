@@ -1,6 +1,8 @@
 import { FaDeleteLeft } from 'react-icons/fa6'
+import { MdBookmarkAdd, MdBookmarkAdded } from 'react-icons/md'
+
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteBook } from '../../redux/books/actioCreators'
+import { deleteBook, toggleFavourite } from '../../redux/books/actioCreators'
 import Styles from './BookList.module.css'
 
 function BookList() {
@@ -9,6 +11,10 @@ function BookList() {
 
 	const handleDeleteBook = id => {
 		dispatch(deleteBook(id))
+	}
+
+	const handleToggleFavouriteBook = id => {
+		dispatch(toggleFavourite(id))
 	}
 
 	return (
@@ -23,8 +29,19 @@ function BookList() {
 							<div className={Styles['book-info']}>
 								{++index}. <strong>{book.title}</strong> by {book.author}
 							</div>
+							{book.isFavourite ? (
+								<MdBookmarkAdded
+									className={`${Styles.ico} ${Styles['added-favorite-ico']}`}
+									onClick={() => handleToggleFavouriteBook(book.id)}
+								/>
+							) : (
+								<MdBookmarkAdd
+									className={`${Styles.ico} ${Styles['favorite-ico']}`}
+									onClick={() => handleToggleFavouriteBook(book.id)}
+								/>
+							)}
 							<FaDeleteLeft
-								className={Styles['delete-ico']}
+								className={`${Styles.ico} ${Styles['delete-ico']}`}
 								onClick={() => handleDeleteBook(book.id)}
 							/>
 						</li>

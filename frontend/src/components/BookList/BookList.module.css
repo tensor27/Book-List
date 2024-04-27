@@ -32,14 +32,6 @@
 	background-color: #63708b;
 }
 
-.book-list .delete-ico {
-	transition: 0.2s all ease-in-out;
-}
-
-.book-list .delete-ico:hover {
-	color: rgb(250, 118, 118);
-}
-
 .book-list button {
 	background-color: #fff;
 	color: red;
@@ -70,20 +62,25 @@
 	align-items: center;
 }
 
-.book-list .star-icon {
-	width: 24px;
-	height: 24px;
-	margin: 0 20px;
-	cursor: pointer;
-	transition: color 0.3s ease;
-	color: #fca510;
-}
-
-.delete-ico {
+.ico {
 	font-size: 24px;
 	padding: 0px;
 	margin: 0px;
 	font-size: 1.5rem;
 	cursor: pointer;
 	padding-inline: 5px;
+	transition: 0.2s all ease-in-out;
+}
+
+.delete-ico:hover {
+	color: rgb(250, 118, 118);
+}
+
+.favorite-ico:hover,
+.added-favorite-ico:hover {
+	color: #fac66dfd;
+}
+
+.added-favorite-ico {
+	color: #fca510;
 }
