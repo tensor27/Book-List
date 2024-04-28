@@ -24,12 +24,13 @@
 	color: black;
 }
 
-.book-list li:nth-child(even) .book-info {
-	color: rgba(0, 0, 0, 0.76);
+.book-list li:nth-child(even) .book-info,
+.book-list li:nth-child(even) span {
+	color: black;
 }
 
 .book-list li:hover {
-	background-color: #63708b;
+	background-color: #8697bd;
 }
 
 .book-list button {

@@ -29,17 +29,17 @@ function BookList() {
 							<div className={Styles['book-info']}>
 								{++index}. <strong>{book.title}</strong> by {book.author}
 							</div>
-							{book.isFavourite ? (
-								<MdBookmarkAdded
-									className={`${Styles.ico} ${Styles['added-favorite-ico']}`}
-									onClick={() => handleToggleFavouriteBook(book.id)}
-								/>
-							) : (
-								<MdBookmarkAdd
-									className={`${Styles.ico} ${Styles['favorite-ico']}`}
-									onClick={() => handleToggleFavouriteBook(book.id)}
-								/>
-							)}
+							<span onClick={() => handleToggleFavouriteBook(book.id)}>
+								{book.isFavourite ? (
+									<MdBookmarkAdded
+										className={`${Styles.ico} ${Styles['added-favorite-ico']}`}
+									/>
+								) : (
+									<MdBookmarkAdd
+										className={`${Styles.ico} ${Styles['favorite-ico']}`}
+									/>
+								)}
+							</span>
 							<FaDeleteLeft
 								className={`${Styles.ico} ${Styles['delete-ico']}`}
 								onClick={() => handleDeleteBook(book.id)}
