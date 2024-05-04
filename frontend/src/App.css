@@ -56,3 +56,13 @@
 		align-self: unset;
 	}
 }
+
+.ico {
+	font-size: 24px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding-inline: 5px;
+	transition: 0.2s all ease-in-out;
+}

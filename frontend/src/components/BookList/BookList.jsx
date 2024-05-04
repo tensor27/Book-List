@@ -3,11 +3,20 @@ import { MdBookmarkAdd, MdBookmarkAdded } from 'react-icons/md'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteBook, toggleFavourite } from '../../redux/books/actioCreators'
+import { selectTitleFilter } from '../../redux/slices/filterSlice'
 import Styles from './BookList.module.css'
 
 function BookList() {
-	const books = useSelector(state => state.books)
 	const dispatch = useDispatch()
+	const books = useSelector(state => state.books)
+	const filterTitle = useSelector(selectTitleFilter)
+
+	const filteredBooks = books.filter(book => {
+		const matchesTitle = book.title
+			.toLowerCase()
+			.includes(filterTitle.toLowerCase())
+		return matchesTitle
+	})
 
 	const handleDeleteBook = id => {
 		dispatch(deleteBook(id))
@@ -24,7 +33,7 @@ function BookList() {
 				<p>No books avaibale</p>
 			) : (
 				<ul>
-					{books.map((book, index) => (
+					{filteredBooks.map((book, index) => (
 						<li key={book.id}>
 							<div className={Styles['book-info']}>
 								{++index}. <strong>{book.title}</strong> by {book.author}
