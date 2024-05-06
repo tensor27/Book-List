@@ -2,20 +2,40 @@ import { FaDeleteLeft } from 'react-icons/fa6'
 import { MdBookmarkAdd, MdBookmarkAdded } from 'react-icons/md'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteBook, toggleFavourite } from '../../redux/books/actioCreators'
-import { selectTitleFilter } from '../../redux/slices/filterSlice'
+import {
+	deleteBook,
+	selectBooks,
+	toggleFavourite,
+} from '../../redux/slices/bookSlice'
+
+import {
+	selectAuthorFilter,
+	selectFavouriteFilter,
+	selectTitleFilter,
+} from '../../redux/slices/filterSlice'
+
 import Styles from './BookList.module.css'
 
 function BookList() {
 	const dispatch = useDispatch()
-	const books = useSelector(state => state.books)
+	const books = useSelector(selectBooks)
 	const filterTitle = useSelector(selectTitleFilter)
+	const filterAuthor = useSelector(selectAuthorFilter)
+	const filterFavourite = useSelector(selectFavouriteFilter)
 
 	const filteredBooks = books.filter(book => {
+		if (filterFavourite) {
+			return book.isFavourite === true
+		}
 		const matchesTitle = book.title
 			.toLowerCase()
 			.includes(filterTitle.toLowerCase())
-		return matchesTitle
+
+		const matchesAuhor = book.author
+			.toLowerCase()
+			.includes(filterAuthor.toLowerCase())
+
+		return matchesAuhor && matchesTitle
 	})
 
 	const handleDeleteBook = id => {

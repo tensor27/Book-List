@@ -4,20 +4,15 @@
 	align-items: center;
 }
 
-/* .filter-group {
-	flex: 1;
-	text-align: center;
-	flex-direction: column;
-} */
-
 .filter-group {
 	display: flex;
 	text-align: center;
 	justify-content: center;
+	gap: 10px;
 }
 
 .filter input[type='text'] {
-	width: 80%;
+	width: 50%;
 	padding: 8px;
 	border: 1px solid #ccc;
 	border-radius: 8px;
@@ -25,6 +20,10 @@
 
 .reset-ico:hover {
 	color: #007bff;
+}
+
+.show-favourite-ico:hover {
+	color: rgb(253, 218, 104)
 }
 
 @media screen and (max-width: 1024px) {
