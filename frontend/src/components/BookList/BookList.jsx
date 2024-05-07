@@ -24,9 +24,6 @@ function BookList() {
 	const filterFavourite = useSelector(selectFavouriteFilter)
 
 	const filteredBooks = books.filter(book => {
-		if (filterFavourite) {
-			return book.isFavourite === true
-		}
 		const matchesTitle = book.title
 			.toLowerCase()
 			.includes(filterTitle.toLowerCase())
@@ -35,7 +32,8 @@ function BookList() {
 			.toLowerCase()
 			.includes(filterAuthor.toLowerCase())
 
-		return matchesAuhor && matchesTitle
+		const matchesFavourite = filterFavourite ? book.isFavourite : true
+		return matchesAuhor && matchesTitle && matchesFavourite
 	})
 
 	const handleDeleteBook = id => {

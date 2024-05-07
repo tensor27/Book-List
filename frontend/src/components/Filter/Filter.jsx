@@ -6,6 +6,7 @@ import Styles from './Filter.module.css'
 import {
 	resetFilter,
 	selectAuthorFilter,
+	selectFavouriteFilter,
 	selectTitleFilter,
 	setAuthorFilter,
 	setFavouriteFilter,
@@ -16,6 +17,7 @@ function Filter() {
 	const dispatch = useDispatch()
 	const titleFilterText = useSelector(selectTitleFilter)
 	const authorFilterText = useSelector(selectAuthorFilter)
+	const favouriteFilter = useSelector(selectFavouriteFilter)
 
 	const handleFilterTitle = e => {
 		dispatch(setTitleFilter(e.target.value))
@@ -54,7 +56,9 @@ function Filter() {
 					onClick={handleResetFilter}
 				/>
 				<MdOutlineBookmarks
-					className={`ico ${Styles['show-favourite-ico']}`}
+					className={`ico ${Styles['show-favourite-ico']} ${
+						favouriteFilter ? Styles['active'] : null
+					}`}
 					title='Show only favourite books'
 					onClick={handleFilterFavourite}
 				/>

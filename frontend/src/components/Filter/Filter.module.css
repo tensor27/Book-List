@@ -23,7 +23,11 @@
 }
 
 .show-favourite-ico:hover {
-	color: rgb(253, 218, 104)
+	color: rgb(253, 218, 104);
+}
+
+.show-favourite-ico.active {
+	color: rgb(233, 180, 8);
 }
 
 @media screen and (max-width: 1024px) {

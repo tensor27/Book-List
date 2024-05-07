@@ -16,12 +16,10 @@ const filterSlice = createSlice({
 		setAuthorFilter: (state, action) => {
 			state.author = action.payload
 		},
-		resetFilter: state => {
+		resetFilter: () => {
 			return initialState
 		},
 		setFavouriteFilter: state => {
-			const filteredBooks = state.filter
-			console.log(filteredBooks)
 			state.showFavourites = !state.showFavourites
 		},
 	},
