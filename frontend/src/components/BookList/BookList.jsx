@@ -44,6 +44,21 @@ function BookList() {
 		dispatch(toggleFavourite(id))
 	}
 
+	const highlightMatch = (text, filter) => {
+		if (!filter) return text
+
+		const regex = new RegExp(`(${filter})`, 'gi')
+		return text.split(regex).map((substring, index) => {
+			if (substring.toLowerCase() === filter.toLowerCase())
+				return (
+					<span className={Styles.highlight} key={index}>
+						{substring}
+					</span>
+				)
+			return substring
+		})
+	}
+
 	return (
 		<div className={`app-block ${Styles['book-list']}`}>
 			<h2>Book List</h2>
@@ -54,7 +69,9 @@ function BookList() {
 					{filteredBooks.map((book, index) => (
 						<li key={book.id}>
 							<div className={Styles['book-info']}>
-								{++index}. <strong>{book.title}</strong> by {book.author}
+								{++index}.{' '}
+								<strong>{highlightMatch(book.title, filterTitle)}</strong> by{' '}
+								{highlightMatch(book.author, filterAuthor)}
 							</div>
 							<span onClick={() => handleToggleFavouriteBook(book.id)}>
 								{book.isFavourite ? (
