@@ -28,8 +28,6 @@ const bookSlice = createSlice({
 export const { addBook, deleteBook, toggleFavourite, clearAllBooks } =
 	bookSlice.actions
 
-	console.log(bookSlice.actions)
-
 export const selectBooks = state => state.books
 
 export default bookSlice.reducer
