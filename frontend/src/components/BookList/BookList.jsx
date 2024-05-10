@@ -6,6 +6,7 @@ import {
 	deleteBook,
 	selectBooks,
 	toggleFavourite,
+	clearAllBooks
 } from '../../redux/slices/bookSlice'
 
 import {

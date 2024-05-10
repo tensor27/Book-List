@@ -1,5 +1,6 @@
-import { MdOutlineBookmarks } from 'react-icons/md'
+import { MdClearAll, MdOutlineBookmarks } from 'react-icons/md'
 import { RxReset } from 'react-icons/rx'
+
 import { useDispatch, useSelector } from 'react-redux'
 import Styles from './Filter.module.css'
 
@@ -12,6 +13,8 @@ import {
 	setFavouriteFilter,
 	setTitleFilter,
 } from '../../redux/slices/filterSlice'
+
+import { clearAllBooks } from '../../redux/slices/bookSlice'
 
 function Filter() {
 	const dispatch = useDispatch()
@@ -33,6 +36,10 @@ function Filter() {
 
 	const handleFilterFavourite = () => {
 		dispatch(setFavouriteFilter())
+	}
+
+	const handleResetBooks = () => {
+		dispatch(clearAllBooks())
 	}
 
 	return (
@@ -61,6 +68,11 @@ function Filter() {
 					}`}
 					title='Show only favourite books'
 					onClick={handleFilterFavourite}
+				/>
+				<MdClearAll
+					className={`ico ${Styles['reset-ico']}`}
+					title='Clear all books'
+					onClick={handleResetBooks}
 				/>
 			</div>
 		</div>

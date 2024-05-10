@@ -19,10 +19,14 @@ const bookSlice = createSlice({
 					: book
 			})
 		},
+		clearAllBooks: () => {
+			return initialState
+		},
 	},
 })
 
-export const { addBook, deleteBook, toggleFavourite } = bookSlice.actions
+export const { addBook, deleteBook, toggleFavourite, clearAllBooks } =
+	bookSlice.actions
 
 export const selectBooks = state => state.books
 
