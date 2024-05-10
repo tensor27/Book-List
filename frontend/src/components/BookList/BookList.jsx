@@ -71,7 +71,8 @@ function BookList() {
 							<div className={Styles['book-info']}>
 								{++index}.{' '}
 								<strong>{highlightMatch(book.title, filterTitle)}</strong> by{' '}
-								{highlightMatch(book.author, filterAuthor)}
+								{highlightMatch(book.author, filterAuthor)} (
+								<i>{book.source}</i>)
 							</div>
 							<span onClick={() => handleToggleFavouriteBook(book.id)}>
 								{book.isFavourite ? (
