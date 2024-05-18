@@ -11,7 +11,7 @@ function Error() {
 
 	useEffect(() => {
 		if (errorMessage.error) {
-			toast.info(errorMessage.error)
+			toast[errorMessage.errorType](errorMessage.error)
 			dispatch(clearError())
 		}
 	}, [errorMessage, dispatch])

@@ -20,7 +20,9 @@ const BookForm = () => {
 			setTitle('')
 			setAuthor('')
 		} else {
-			dispatch(setError('You must fill title and author'))
+			dispatch(
+				setError({ error: 'You must fill title and author', type: 'info' })
+			)
 		}
 	}
 
@@ -33,7 +35,7 @@ const BookForm = () => {
 	}
 
 	const handleBookRequest = () => {
-		dispatch(fetchBook())
+		dispatch(fetchBook('http://localhost:4000/random-book'))
 	}
 
 	return (
