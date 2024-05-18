@@ -32,7 +32,12 @@
 	background-color: #0056b3;
 }
 
-.book-form .spinner {
+.book-form button:disabled {
+	cursor: default;
+	background-color: rgba(129, 129, 129, 0.658);
+}
+
+.spinner {
 	animation: spinner 1s infinite linear;
 	margin-left: 10px;
 }
