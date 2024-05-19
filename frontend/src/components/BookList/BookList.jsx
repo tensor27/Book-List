@@ -22,7 +22,6 @@ function BookList() {
 	const filterTitle = useSelector(selectTitleFilter)
 	const filterAuthor = useSelector(selectAuthorFilter)
 	const filterFavourite = useSelector(selectFavouriteFilter)
-
 	const filteredBooks = books.filter(book => {
 		const matchesTitle = book.title
 			.toLowerCase()
